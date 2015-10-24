@@ -21,25 +21,31 @@ public class QueryService implements IQueryService
     @Override
     public JSONObject execute(String sql)
     {
-        List results =  repository.execute(sql);
+        List<Map<String, Object>> sqlResult =  repository.execute(sql);
         JSONObject result = new JSONObject();
 
-        if (results == null || results.isEmpty())
+        if (sqlResult == null || sqlResult.isEmpty())
         {
             return result;
         }
 
         Map<String, JSONArray> allSeries = new HashMap<>();
 
-        for (Map<String, Object> cell : results)
+        for (Map<String, Object> cell : sqlResult)
         {
             Iterator<String> iter = cell.keySet().iterator();
             while (iter.hasNext())
             {
                 String columnName = iter.next();
-                if (allSeries.keySet().contains(columnName))
+                if (allSeries.containsKey(columnName))
                 {
-                    allSeries.get(columnName).
+                    allSeries.get(columnName).put(cell.get(columnName));
+                }
+                else
+                {
+                    JSONArray data = new JSONArray();
+                    data.put(cell.get(columnName));
+                    allSeries.put(columnName, data);
                 }
             }
         }

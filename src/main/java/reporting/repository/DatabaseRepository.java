@@ -1,6 +1,7 @@
 package reporting.repository;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.AliasToEntityMapResultTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,7 @@ public class DatabaseRepository implements IDatabaseRepository
     {
         return sessionFactory.getCurrentSession()
                 .createSQLQuery(sql)
+                .setResultTransformer(AliasToEntityMapResultTransformer.INSTANCE)
                 .list();
     }
 
