@@ -10,12 +10,16 @@
   <head>
     <title>charts</title>
   </head>
+  <link rel="stylesheet" type="text/css" href="./css/query.css">
   <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript" ></script>
   <script src="http://code.highcharts.com/highcharts.js" type="text/javascript" ></script>
   <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript" ></script>
-  <script src="./js/chart.js" type="text/javascript" ></script>
+  <script src="./js/query.js" type="text/javascript" ></script>
   <body>
-    <div><textarea id="sql" style="height: 200px; width: 500px;"></textarea></div>
-    <div id="container" style="min-width: 400px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    <div id="mainPanel">
+    </div>
+    <div class="mainButtonPanel">
+        <button id="addQueryBlock" class="addQueryBlock">Add Query</button>
+    </div>
   </body>
 </html>

@@ -1,0 +1,36 @@
+.queryEditor {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.sqlTextArea {
+    width: 800px;
+}
+
+.chartContainer {
+    min-width: 400px;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.addQueryBlock {
+    width: 300px;
+}
+
+.mainButtonPanel {
+    text-align: center;
+}
+
+.querySubmit {
+    float: right;
+}
+
+.chartOptions {
+    clear: both;
+    float: right;
+}
+
+.chartContainer {
+    clear: both;
+}

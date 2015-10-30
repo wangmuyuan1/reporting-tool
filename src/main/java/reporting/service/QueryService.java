@@ -21,7 +21,7 @@ public class QueryService implements IQueryService
     @Override
     public JSONObject execute(String sql)
     {
-        List<Map<String, Object>> sqlResult =  repository.execute(sql);
+        List<Map<String, Object>> sqlResult =  repository.execute(sql.replace(";", ""));
         JSONObject result = new JSONObject();
 
         if (sqlResult == null || sqlResult.isEmpty())
